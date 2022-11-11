@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int addDigits(int n) {
+        int sum;
+        sum=digit(n);
+        while(1){
+        if(sum<=9){
+        return sum;
+        break;
+        }
+        else
+        sum=digit(sum);
+        
+    }
+    }
+        int digit(int n){
+        int sum;
+        if(n==0) return 0;
+        else{
+        sum=n%10;
+        return digit(n/10)+sum;
+    }
+        }
+};
