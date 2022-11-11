@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {   
+        map<int,int> m;
+        int sum;
+        for(int i=0;i<nums.size();i++)
+            m[nums[i]]++;
+        vector<int> res;
+        for(int i=0;i<nums.size();i++){
+            sum=0;
+            for(auto j: m){
+                if(j.first == nums[i])
+                    break;
+                sum+=j.second;
+            } 
+            res.push_back(sum);
+        }
+        return res;
+    }
+};
