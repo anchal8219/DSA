@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+    // ASCII value of uppercase char A to Z ranges from 65 to 92
+    // ASCII value of lowercase char a to z ranges from 97 to 122
+      for(int i=0;i<=s.length();i++) {  
+      if(s[i]>=65 && s[i]<=92)
+	  s[i]=s[i]+32;
+   }
+   const regex pattern("[^A-Za-z0-9]");
+   string d=regex_replace(s, pattern, "");
+
+   int i=0,j=d.length()-1,flag=1;
+   while(i<j){
+       if(d[i]!=d[j]){
+           flag=0;
+           break;
+       }
+       i++;
+       j--;
+       
+   }
+   if(flag==0)
+   return false;
+   else
+   return true;
+
+    }
+};
