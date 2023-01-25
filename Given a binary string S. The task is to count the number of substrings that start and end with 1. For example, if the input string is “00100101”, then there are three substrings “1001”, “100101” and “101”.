@@ -1,0 +1,21 @@
+class Solution
+{
+    public:
+    //Function to count the number of substrings that start and end with 1.
+    long binarySubstring(int n, string a){
+        long c=0;
+        for(auto &s:a){
+            if(s=='1') c++;
+        }
+        long res=0;
+        if(c==0 || c==1)
+        return res;
+        else{
+            res=c*(c-1)/2;   
+            return res;
+        }
+
+        
+    }
+
+};
