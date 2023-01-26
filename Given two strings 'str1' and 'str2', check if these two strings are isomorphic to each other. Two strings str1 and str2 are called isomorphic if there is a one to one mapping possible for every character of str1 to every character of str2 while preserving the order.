@@ -1,0 +1,20 @@
+const int CHAR =256;
+    bool areIsomorphic(string str1, string str2)
+    {
+        int count1[CHAR] ={0},count2[CHAR] ={0};
+        
+        for(int i=0;i<str1.length();i++){
+            count1[str1[i]]++;
+            count2[str2[i]]++;
+        }
+        
+        if(str1.length()!=str2.length()) return false; 
+        for(int i=0;i<str1.length();i++){
+            if(count1[str1[i]]!=count2[str2[i]])
+            return false;
+            count1[str1[i]]--;
+            count2[str2[i]]--;
+        }
+        return true;
+        
+    }
