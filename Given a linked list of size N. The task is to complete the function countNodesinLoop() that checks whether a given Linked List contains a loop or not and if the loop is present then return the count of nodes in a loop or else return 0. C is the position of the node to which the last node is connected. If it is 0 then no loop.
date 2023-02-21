@@ -1,0 +1,23 @@
+int countNodes(struct Node* n){
+    int res=1;
+    struct Node* temp=n;
+    while(temp->next!=n){
+        res++;
+        temp=temp->next;
+    }
+    return res;
+}
+
+//Function to find the length of a loop in the linked list.
+int countNodesinLoop(struct Node *head)
+{
+    struct Node *slow_n = head , *fast_n = head;
+    while(fast_n!=NULL && fast_n->next!=NULL){
+        slow_n = slow_n->next;
+        fast_n = fast_n->next->next;
+        
+        if(slow_n==fast_n)
+        return countNodes(slow_n);
+    }
+    return 0;
+}
