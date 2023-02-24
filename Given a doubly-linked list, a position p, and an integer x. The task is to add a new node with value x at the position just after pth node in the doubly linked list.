@@ -1,0 +1,15 @@
+void addNode(Node *head, int pos, int data)
+{
+   Node *curr = new Node(data);
+   Node *temp = head;
+   while(pos--)
+   temp=temp->next;
+   
+   curr->next=temp->next;
+   curr->prev=temp;
+   if(temp->next!=NULL)
+   temp->next->prev=curr;
+   temp->next=curr;
+
+       
+}
