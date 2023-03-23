@@ -1,0 +1,37 @@
+bool isPalindrome(ListNode* head) {
+        //find the middle
+        if(head==NULL)
+        return true;
+        ListNode *curr=head;
+        ListNode *slow=head;
+        ListNode *fast=head;
+        while(fast->next!=NULL &&fast->next->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        //slow pointer will give the middle element
+        //now reverse
+        ListNode *mid=slow->next;
+        ListNode *prev=NULL;
+
+        while(mid!=NULL)
+        {
+            ListNode *next=mid->next;
+            mid->next=prev; //pointing to NULL
+            prev=mid;
+            mid=next;
+
+        }
+        ListNode *head2=prev;
+        while(head2!=NULL)
+        {
+            if(head2->val!=curr->val)
+            return false;
+            head2=head2->next;
+            curr=curr->next;
+        }
+        return true;
+        
+
+    }
