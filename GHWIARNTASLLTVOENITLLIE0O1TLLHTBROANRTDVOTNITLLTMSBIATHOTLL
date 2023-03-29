@@ -1,0 +1,16 @@
+int getDecimalValue(ListNode* head) {
+        ListNode* curr=head;
+        int a=0;
+        while(curr){
+            a++;
+            curr=curr->next;
+        }
+        int sum=0;
+        curr=head;
+        while(curr!=NULL ){
+            sum+= (pow(2,a-1)) * (curr->val);
+            a--;
+            curr=curr->next;
+        }
+        return sum;
+    }
