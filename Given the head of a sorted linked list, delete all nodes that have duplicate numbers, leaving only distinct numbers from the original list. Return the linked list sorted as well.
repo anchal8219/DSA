@@ -1,0 +1,24 @@
+ListNode* deleteDuplicates(ListNode* head) {
+        
+    // create a dummy node to simplify the logic
+    ListNode* dummy = new ListNode(0);  
+    dummy->next = head;
+    ListNode* curr = dummy;
+    
+    while (curr->next && curr->next->next) {  // iterate until the second last node
+        if (curr->next->val == curr->next->next->val) {  // this node has duplicates
+            int val = curr->next->val;
+            while (curr->next && curr->next->val == val) {  // remove all nodes with the same value
+                ListNode* temp = curr->next;
+                curr->next = temp->next;
+                delete temp;
+            }
+        } else {  // move to the next node
+            curr = curr->next;
+        }
+    }
+    
+    ListNode* result = dummy->next;
+    delete dummy;
+    return result;
+}
