@@ -1,0 +1,13 @@
+long long int minOperations(int N) {
+//optimized solution
+        long long int ans = N / 2;
+        ans *= (N + 1) / 2;
+        return ans;
+        
+        
+        // int sum=0;
+            // for(int i=0;i<N/2;i++){
+            //     sum+= (N-((2*i)+1));
+            // }
+            // return sum;
+    }
