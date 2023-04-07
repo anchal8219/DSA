@@ -1,0 +1,27 @@
+    bool isIsomorphic(string s, string t) {
+    if (s.length() != t.length()) { // If the two strings have different lengths, they cannot be isomorphic.
+        return false;
+    }
+
+    unordered_map<char, char> mapping; // Create an unordered_map to store the mapping from s to t.
+    unordered_set<char> used; // Create an unordered_set to store the used characters in t.
+
+    for (int i = 0; i < s.length(); i++) {
+        char s_char = s[i];
+        char t_char = t[i];
+
+        if (mapping.find(s_char) != mapping.end()) { // If s_char is already mapped to another character, check if it matches t_char.
+            if (mapping[s_char] != t_char) {
+                return false;
+            }
+        } else {
+            if (used.find(t_char) != used.end()) { // If t_char is already used by another character in s, return false.
+                return false;
+            }
+            mapping[s_char] = t_char; // Otherwise, map s_char to t_char and mark t_char as used.
+            used.insert(t_char);
+        }
+    }
+
+    return true; // If all characters are mapped and used correctly, return true.
+}
