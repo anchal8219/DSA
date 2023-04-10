@@ -1,0 +1,15 @@
+int countDigits(int num) {
+        vector<int> digits;
+    int temp = num;
+    while (temp != 0) {
+        digits.push_back(temp % 10);
+        temp /= 10;
+    }
+    int count = 0;
+    for (int digit : digits) {
+        if (digit != 0 && num % digit == 0) {
+            count++;
+        }
+    }
+    return count;
+    }
