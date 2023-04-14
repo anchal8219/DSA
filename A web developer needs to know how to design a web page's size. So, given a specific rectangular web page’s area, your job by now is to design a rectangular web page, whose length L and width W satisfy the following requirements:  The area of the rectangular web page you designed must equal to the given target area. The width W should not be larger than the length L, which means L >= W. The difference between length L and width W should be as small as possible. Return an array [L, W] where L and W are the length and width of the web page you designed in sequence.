@@ -1,0 +1,12 @@
+vector<int> constructRectangle(int area) {
+        int sqrtArea = sqrt(area);
+    int width = sqrtArea;
+
+    while (area % width != 0) {
+        width--;
+    }
+
+    int length = area / width;
+
+    return {length, width};
+    }
