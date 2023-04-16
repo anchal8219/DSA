@@ -1,0 +1,23 @@
+int getValue(string s) {
+    bool hasNonDigit = false;
+    for (char c : s) {
+        if (!isdigit(c)) {
+            hasNonDigit = true;
+            break;
+        }
+    }
+    if (!hasNonDigit) {
+        return stoi(s); // convert to integer
+    } else {
+        return s.length(); // length of the string
+    }
+}
+
+int maximumValue(vector<string>& strs) {
+    int maxVal = 0;
+    for (string s : strs) {
+        int val = getValue(s);
+        maxVal = max(maxVal, val);
+    }
+    return maxVal;
+}
