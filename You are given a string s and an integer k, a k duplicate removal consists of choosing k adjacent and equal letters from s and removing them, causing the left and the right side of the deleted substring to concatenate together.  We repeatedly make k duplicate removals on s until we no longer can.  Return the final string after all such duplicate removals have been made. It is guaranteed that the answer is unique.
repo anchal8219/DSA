@@ -1,0 +1,17 @@
+    string removeDuplicates(string s, int k) {
+        vector<pair<char,int>> stk;
+        for(auto c: s){
+            if(stk.size()==0 || stk.back().first != c)
+            stk.push_back({c,1});
+            else
+            stk.back().second++;
+
+            if(stk.back().second == k )
+            stk.pop_back();
+        }
+        string res = "";
+        for(auto d: stk)
+        res.append(d.second, d.first);
+
+        return res;
+    }
