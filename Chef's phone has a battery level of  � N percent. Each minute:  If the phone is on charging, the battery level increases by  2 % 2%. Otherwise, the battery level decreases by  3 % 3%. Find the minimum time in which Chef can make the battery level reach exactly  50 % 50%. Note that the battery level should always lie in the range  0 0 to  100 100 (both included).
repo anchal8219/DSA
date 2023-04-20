@@ -1,0 +1,22 @@
+int main() {
+    int t,n,c,sum;
+	cin>>t;
+	while(t--){
+	    c = 0;
+	    cin>>n;
+	    sum = n;
+	    while(sum!=50){
+	        
+	        if(sum>50) 
+	        sum-= 3;
+	        else if(sum<50)
+	        sum += 2;
+	        c++;
+	        
+	    }
+	    cout<<c<<endl;
+	    
+	}
+
+	return 0;
+}
