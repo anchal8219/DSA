@@ -1,0 +1,37 @@
+int countStudents(vector<int>& students, vector<int>& sandwiches) {
+        reverse(sandwiches.begin(), sandwiches.end());
+
+		stack<int> st; // For sandwiches
+		queue<int> q;  // For Students
+
+		for(auto i : sandwiches){
+			st.push(i);
+		}
+
+		for(auto i : students){
+			q.push(i);
+		}
+
+		int rotationCycle = 0;
+		while(!st.empty()){
+
+			if(st.top() == q.front()){ 
+				q.pop();
+				st.pop();
+				rotationCycle = 0;
+			}
+			else{
+				int temp = q.front();
+				q.pop();
+				q.push(temp);
+
+				rotationCycle++;
+
+				if(rotationCycle >= q.size()){
+					break;
+				}
+			}
+		}
+
+		return st.size();
+    }
