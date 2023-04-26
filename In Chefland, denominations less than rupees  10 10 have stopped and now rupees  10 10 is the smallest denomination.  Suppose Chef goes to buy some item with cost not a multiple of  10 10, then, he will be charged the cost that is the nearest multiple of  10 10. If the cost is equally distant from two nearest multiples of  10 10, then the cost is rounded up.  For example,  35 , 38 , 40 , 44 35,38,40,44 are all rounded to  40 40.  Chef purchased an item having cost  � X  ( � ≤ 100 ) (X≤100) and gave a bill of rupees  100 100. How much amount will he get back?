@@ -1,0 +1,25 @@
+int main() {
+	// your code goes here
+	int t,x,r;
+	cin>>t;
+	while(t--){
+
+	    cin>>x;
+	    r = x%10;
+	    if(r<5){
+	        int g = x-r;
+	        cout<<(100-g)<<endl;
+	        
+	    }
+	    else if(r==0)
+	    cout<<(100-x)<<endl;
+	    else{
+	        int h = x+(10-r);
+	        
+	        cout<<(100-h)<<endl;
+	        
+	    }
+	    
+	}
+	return 0;
+}
