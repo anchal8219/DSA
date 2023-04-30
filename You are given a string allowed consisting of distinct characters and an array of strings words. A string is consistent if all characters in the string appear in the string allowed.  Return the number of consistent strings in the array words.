@@ -1,0 +1,24 @@
+int countConsistentStrings(string a, vector<string>& words) {
+        map<char,int> m;
+        for(int i=0;i<a.length();i++)
+        m[a[i]]= 1;
+        int co=0;
+        
+        for(int i=0;i<words.size();i++){
+            int flag=1;
+            for(int j=0;j<words[i].size();j++){
+                if(m[words[i][j]]!=1){
+                    flag = 0;
+                    break;
+                }
+                
+                // co++;
+
+            }
+            if(flag==1)
+            co++;
+            
+        }
+        return co;
+        
+    }
