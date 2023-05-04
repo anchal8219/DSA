@@ -1,0 +1,14 @@
+vector<string> sortPeople(vector<string>& names, vector<int>& h) {
+        map<int,string> m;
+        vector<string> sortt;
+        for(int i=0;i<h.size();i++)
+        m[h[i]] = names[i];
+
+        sort(h.begin(),h.end());
+        int i=h.size()-1;
+        while(i>=0){
+            sortt.push_back(m[h[i]]);
+            i--;
+        }
+        return sortt;
+    }
