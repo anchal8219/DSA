@@ -1,0 +1,13 @@
+long long countBits(long long N) {
+        long long count = 0;
+    for (int i = 1; i <= N; i++) {
+        int  n = i;
+        while (n > 0) {
+            count += n & 1;
+            n >>= 1;
+
+        }
+ 
+    }
+    return count;
+    }
