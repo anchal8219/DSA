@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t,n;
+	cin>>t;
+	while(t--){
+	    cin>>n;
+	    int f = (1+n)/2;
+	    cout<<f<<endl;
+	}
+	return 0;
+}
