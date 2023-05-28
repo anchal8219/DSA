@@ -1,0 +1,18 @@
+bool isSame(TreeNode* p, TreeNode* q){
+
+		if(p == NULL || q == NULL){
+			return (p == q);
+		}    
+		return (p->val == q->val) && isSame(p->left, q->right) && isSame(p->right, q->left);
+	}
+
+    bool isSymmetric(TreeNode* root) {
+        if(root==NULL) return true;
+
+        if(isSame(root->left,root->right)) return true;
+        else return false;
+
+
+
+        
+    }
