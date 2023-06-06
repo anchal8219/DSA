@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<vector<int>> ans;
+    void helper(TreeNode* root, int targetSum, vector<int> s){
+        if(root==NULL ) return ;
+        
+        s.push_back(root->val);
+        // targetSum = (targetSum - root->val);
+
+        if(root->left==NULL && root->right==NULL){
+            if(targetSum==root->val) {
+                ans.push_back(s);
+                return ;
+            }
+        } 
+        
+            helper(root->left, targetSum-root->val,s);
+            helper(root->right, targetSum-root->val,s);
+            s.pop_back();
+        
+    }
+
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        
+        vector<int> s;
+        helper(root, targetSum, s);
+        return ans;
+
+    }
+};
