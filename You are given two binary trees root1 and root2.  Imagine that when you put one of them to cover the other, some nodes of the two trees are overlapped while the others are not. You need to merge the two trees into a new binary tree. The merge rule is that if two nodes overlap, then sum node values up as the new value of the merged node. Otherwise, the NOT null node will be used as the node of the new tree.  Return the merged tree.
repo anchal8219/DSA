@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<TreeNode*>v;
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if(!root1 && !root2) return NULL;
+        if(!root1) return root2;
+        if(!root2) return root1;
+
+        queue<TreeNode*> q1;
+        queue<TreeNode*> q2;
+        q1.push(root1);
+        q2.push(root2);
+
+        while(!q1.empty() && !q2.empty()){
+                TreeNode* curr1 = q1.front();
+                TreeNode* curr2 = q2.front();
+                q1.pop();
+                q2.pop();
+
+                curr1->val = (curr1->val + curr2->val);
+
+                if(curr1->left!= NULL && curr2->left!= NULL) {
+                    q1.push(curr1->left);
+                    q2.push(curr2->left);
+                }
+                else if (curr2->left!=NULL)
+                curr1->left = curr2->left;
+
+                if(curr1->right!= NULL && curr2->right!= NULL) {
+                    q1.push(curr1->right);
+                    q2.push(curr2->right);
+                }
+                else if (curr2->right!=NULL)
+                curr1->right= curr2->right;
+
+
+            // }
+        }
+        return root1;
+    }
+};
