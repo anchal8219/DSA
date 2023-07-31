@@ -1,0 +1,28 @@
+
+# DSA
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& a) {
+        vector<vector<int>>v;
+
+        
+        int n=a.size();
+        if(n==0) return v;
+
+        sort(a.begin(),a.end());
+       
+        vector<int>curr = a[0];
+        for (int i = 1; i < n; i++) {
+            if(curr[1]<a[i][0]){
+                v.push_back(curr);
+                curr = a[i];
+            }
+            else{
+                curr[1] = max(curr[1],a[i][1]);
+            }
+            
+        }
+        v.push_back(curr);
+        return v;
+    }
+};
