@@ -1,0 +1,41 @@
+# DSA
+class Solution {
+public:
+    int countCompleteSubarrays(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int, int> m,mp;
+        int c=0;
+        for (int j = 0; j < n; j++) {
+            m[nums[j]]++;
+            if(m[nums[j]]==1) c++;
+ 
+        }
+        int k=c;
+    
+        int e=0;
+        
+        for(int h=k;h<=n;h++){
+            mp.clear();
+            for(int i=0;i<h;i++)
+            mp[nums[i]]++;
+            
+            if(mp.size()==c) e++;
+            // cout<<h;
+            for(int g=h;g<n;g++){
+            if(mp[nums[g-h]] == 1) mp.erase(nums[g-h]);
+            else mp[nums[g-h]]--;
+            
+            mp[nums[g]]++;
+            if(mp.size()==c) e++;
+        }
+            
+        }
+        
+        return e;
+    }
+
+        
+  
+};
+
+
