@@ -1,0 +1,23 @@
+# DSA
+void insert(stack<int> &st,int x){
+    if(st.size()==0){
+        st.push(x);
+    }
+    else {
+ 
+        int a = st.top();
+        st.pop();
+        insert(st, x);
+        st.push(a);
+    }
+}
+    void Reverse(stack<int> &st){
+        if(st.size()>0){
+            int f = st.top();
+            st.pop();
+            Reverse(st);
+            
+            insert(st,f);
+            
+        }
+    }
