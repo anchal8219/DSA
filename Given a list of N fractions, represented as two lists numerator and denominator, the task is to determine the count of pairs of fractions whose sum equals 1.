@@ -1,0 +1,17 @@
+int countFractions(int n, int neu[], int deno[])
+    {
+        unordered_map<string, int> m; 
+        
+        int i = 0, j = n - 1; 
+        int nOPairs = 0; 
+        for(int i=  0; i < n; i++) {
+            double num = (double)neu[i] / (double)deno[i]; 
+            double target = 1.0 - num; 
+            string key = to_string(num); 
+            
+            nOPairs += m[key]; 
+            m[to_string(target)]++; 
+           
+        }
+        return nOPairs; 
+    }
