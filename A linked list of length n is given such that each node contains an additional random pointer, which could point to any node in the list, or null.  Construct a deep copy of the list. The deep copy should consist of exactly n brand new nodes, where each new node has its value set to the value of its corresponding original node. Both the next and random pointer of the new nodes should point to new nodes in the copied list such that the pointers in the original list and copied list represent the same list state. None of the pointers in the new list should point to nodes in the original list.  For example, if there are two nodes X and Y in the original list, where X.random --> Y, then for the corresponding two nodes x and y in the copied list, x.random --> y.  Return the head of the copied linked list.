@@ -1,0 +1,12 @@
+Node* copyRandomList(Node* head) {
+        map<Node*,Node*> m;
+        for(Node* curr=head;curr!=NULL;curr=curr->next){
+            m[curr] = new Node(curr->val);
+        }
+        for(Node* curr=head;curr!=NULL;curr=curr->next){
+            Node* temp = m[curr];
+            temp -> next = m[curr->next];
+            temp-> random = m[curr->random];
+        }
+        return m[head];
+    }
