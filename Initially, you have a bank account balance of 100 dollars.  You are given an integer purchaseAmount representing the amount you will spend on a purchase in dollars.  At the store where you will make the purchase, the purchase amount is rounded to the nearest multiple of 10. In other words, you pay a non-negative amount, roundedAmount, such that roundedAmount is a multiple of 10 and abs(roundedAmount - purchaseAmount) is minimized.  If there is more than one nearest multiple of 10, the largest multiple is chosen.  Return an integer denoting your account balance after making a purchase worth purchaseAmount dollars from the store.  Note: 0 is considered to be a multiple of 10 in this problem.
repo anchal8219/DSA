@@ -1,0 +1,8 @@
+int accountBalanceAfterPurchase(int pa) {
+        int rem = pa%10;
+        
+        if(rem<5) pa=pa-rem;
+        else pa = pa+(10-rem);
+     
+        return 100-pa;
+    }
