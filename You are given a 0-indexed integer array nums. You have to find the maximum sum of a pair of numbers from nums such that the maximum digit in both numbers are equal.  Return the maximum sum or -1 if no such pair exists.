@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int mxdigit(int a){
+        int mxm=0;
+        while(a!=0){
+            int r = a%10;
+            if(r>mxm){
+                mxm=r;
+
+            }
+            a=a/10;
+        }
+        // cout<<mxm;
+        return mxm;
+        
+    }
+    int maxSum(vector<int>& nums) {
+        int mx=INT_MIN,sum;
+        for(int i=0;i<nums.size();i++){
+            for(int j=i+1;j<nums.size();j++){
+                sum=0;
+                int d = mxdigit(nums[i]);
+                int e = mxdigit(nums[j]);
+                
+                if(d==e){
+                    sum += nums[i]+nums[j];
+                    if(sum>mx){
+                        mx=sum;
+                    }
+                    
+                }
+                
+            }
+        
+        }
+        return (mx==INT_MIN) ? -1: mx;
+    }
+};
