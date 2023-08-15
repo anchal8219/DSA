@@ -1,0 +1,17 @@
+string longestNiceSubstring(string s) {
+        set<char>st;
+        if(s.length()<2) return "";
+        for(int i=0;i<s.length();i++){
+            st.insert(s[i]);
+        }
+        for(int i=0;i<s.length();i++){
+            if(st.find(tolower(s[i]))!=st.end() && st.find(toupper(s[i]))!=st.end()) continue;
+            string prev = longestNiceSubstring(s.substr(0,i));
+            string next = longestNiceSubstring(s.substr(i+1));
+
+            return (prev.length()>= next.length())? prev : next;   
+
+        }
+        return s;
+
+    }
