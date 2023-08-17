@@ -1,0 +1,15 @@
+int minimumRecolors(string b, int k) {
+        int i=0,j=0,c=0;
+        int mn =INT_MAX;
+        while(j<b.length()){
+            if(b[j]=='W') c++;
+            if(j-i+1==k){
+                mn = min(mn,c);
+                if(b[i]=='W') c--;
+                i++;
+              
+            }
+            j++;
+        }
+        return mn;
+    }
