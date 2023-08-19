@@ -1,0 +1,17 @@
+string toHex(int num) {
+        string s = "0123456789abcdef";
+        string ans="";
+        if (num == 0) {
+        return "0"; 
+    }
+
+    unsigned int n = static_cast<unsigned int>(num);
+
+    while (n > 0) {
+        int d = (n & 0xf);
+        ans = s[d] + ans;
+        n >>= 4;
+    }
+        return ans;
+        
+    }
