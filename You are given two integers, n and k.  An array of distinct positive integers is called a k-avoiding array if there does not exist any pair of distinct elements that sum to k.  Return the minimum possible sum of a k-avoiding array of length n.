@@ -1,0 +1,19 @@
+int minimumSum(int n, int k) {
+        map<int, bool> uninum;
+    int s = 0;
+    
+    for (int curIndex = 0, curNum = 1; curIndex < n;) {
+        int d = k - curNum;
+        
+        if (uninum.find(d) == uninum.end()) {
+            uninum[curNum] = true;
+            s += curNum;
+            curNum++;
+            curIndex++;
+        } else {
+            curNum++;
+        }
+    }
+    
+    return s;
+    }
