@@ -1,0 +1,16 @@
+int numberOfBeautifulIntegers(int low, int high, int k) {
+        int cnt=0;
+        for(int i=low;i<=high;i++){
+            if(i%k==0){
+                bool flag=false;
+                int j=f(i,flag);
+                if(j%2){
+                    i=pow(10,j);
+                    i--;
+                    continue;
+                }
+                if(flag) cnt++;
+            }
+        }
+        return cnt;
+    }
