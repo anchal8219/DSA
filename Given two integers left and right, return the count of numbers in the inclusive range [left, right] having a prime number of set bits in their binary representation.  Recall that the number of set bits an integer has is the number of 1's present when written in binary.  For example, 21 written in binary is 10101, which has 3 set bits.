@@ -1,0 +1,70 @@
+// class Solution {
+// public:
+// bool prime(int n){
+//     if(n==1) return false;
+//     if(n<=3) return true;
+//     if(n%2==0 || n%3==0) return false;
+
+//     for(int i=5;i*i<=n;i=i+6){
+//         if(n%i==0 || n%(i+2)==0) return false;
+//     }
+//     return true;
+    
+// }
+//     int countPrimeSetBits(int l, int r) {
+//         int c=0;
+//         for(int i=l;i<=r;i++){
+//             int d = __builtin_popcount(i);
+//             if(prime(d)) c++;
+
+
+//         }
+//         return c;
+//     }
+// };
+
+
+
+
+// class Solution {
+// public:
+//     int countPrimeSetBits(int left, int right) {
+//         // Create a set to store prime numbers from 2 to 32 (as 32 bits is the maximum for integers).
+//         unordered_set<int> primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31};
+        
+//         int count = 0;
+//         for (int num = left; num <= right; ++num) {
+//             // Count the set bits in 'num'.
+//             int setBits = 0;
+//             int n = num;
+//             while (n > 0) {
+//                 setBits += (n & 1); // Check the least significant bit.
+//                 n >>= 1;           // Right shift to check the next bit.
+//             }
+            
+//             // Check if the count of set bits is prime.
+//             if (primes.find(setBits) != primes.end()) {
+//                 count++;
+//             }
+//         }
+        
+//         return count;
+//     }
+// };
+
+
+
+
+int countPrimeSetBits(int left, int right) {
+        int res=0;
+        for(int i=left;i<=right;i++){
+            int ans = ones(i);
+            if((ans & 1)!=0 || ans==2){
+                if(ans==3)
+                    res++;
+                if(ans!=1 && ans%3!=0)
+                res++;
+            }
+        }
+        return res;
+    }
