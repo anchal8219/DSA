@@ -1,0 +1,39 @@
+ Node *compute(Node *head)
+    {
+        if(head==NULL || !head->next)
+            return head;
+        Node *temp=head;
+        Node *nh = NULL;
+        Node *np = NULL;
+        while(temp)
+        {
+            bool del=false;
+            int ele = temp->data;
+            Node *it = temp->next;
+            while(it)
+            {
+                if(it->data > ele)
+                {
+                    del=true;
+                    break;
+                }
+                it=it->next;
+            }
+            if(!del)
+            {
+                if(nh==NULL)
+                {
+                    nh=temp;
+                    np=temp;
+                }
+                else
+                {
+                    np->next=temp;
+                    np=np->next;
+                }
+            }
+            temp=temp->next;
+        }
+        return nh;
+        // your code goes here
+    }
