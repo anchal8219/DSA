@@ -1,0 +1,16 @@
+
+class Solution {
+public:
+TreeNode* bst(vector<int>& nums,int l,int r){
+    if(l>r) return NULL;
+    int md = (l+r)/2;
+    TreeNode* n = new TreeNode(nums[md]);
+    n->left = bst(nums,l,md-1);
+    n->right = bst(nums,md+1,r);
+    return n;
+}
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        if(nums.size() == 0) return NULL;
+        return bst(nums,0,nums.size()-1);
+    }
+};
