@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+#define ll long long 
+
+int main() {
+	// your code goes 
+	ll l,b,n;
+	cin>>l>>b;
+	cin>>n;
+	ll L,B,c=0;
+	for(ll i=0;i<n;i++){
+	    cin>>L>>B;
+	  	c+= max((B/l)*(L/b), (B/b)*(L/l));
+	    
+	}
+	cout<<c;
+	return 0;
+}
