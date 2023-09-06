@@ -1,0 +1,17 @@
+int minOperation(int n)
+    {
+        int c=0;
+        for(int i=n;i>0;i--){
+            if(n==0) break;
+            
+            if(n%2!=0) {
+                n=n-1;
+                c++;
+            }
+            else{
+               n=n/2;
+               c++;
+            } 
+        }
+        return c;
+    }
