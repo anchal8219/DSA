@@ -1,0 +1,21 @@
+static bool cpm(Item b,Item c){
+        double r1 = (double)b.value/b.weight;
+        double r2 = (double)c.value/c.weight;
+        return r1>r2;
+    }
+    
+    double fractionalKnapsack(int W, Item a[], int n)
+    {
+        sort(a,a+n,cpm);
+        double res=0.0;
+        for(int i=0;i<n;i++){
+            if(a[i].weight <= W){
+                W -= a[i].weight;
+                res += a[i].value;
+            }else{
+                res += a[i].value * ((double)W/a[i].weight);
+                break;
+            }
+        }
+        return res;
+    }
