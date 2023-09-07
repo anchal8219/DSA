@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    int x,h,c=0,i=1;
+	    cin>>x>>h;
+	  while(i>0){
+	      if(i<=5 && h>0){
+	          h=h-x/2;
+	          c++;
+	          i++;
+	      }
+	      else if(i>5 && h>0){
+	          h=h-x;
+	          c++;
+	          i++;
+	      }
+	      else if(h<=0){
+	          break;
+	      }
+	  }
+	  cout<<c<<endl;
+	}
+}
+	    
