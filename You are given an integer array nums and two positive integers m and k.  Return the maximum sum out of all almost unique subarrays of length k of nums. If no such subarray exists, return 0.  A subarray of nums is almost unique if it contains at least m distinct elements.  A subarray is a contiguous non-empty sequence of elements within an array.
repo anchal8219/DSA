@@ -1,0 +1,28 @@
+long long maxSum(vector<int>& nums, int mss, int k) {
+        long long int n = nums.size();
+        unordered_map<int, int> mp;
+        long long int sum=0,ans=0;
+        
+            for(int i=0;i<k;i++){
+                sum += nums[i];
+                mp[nums[i]]++;
+            }
+            
+            if(mp.size()>=mss){
+                ans = max(ans, sum);
+            }
+
+            for(int g=k;g<n;g++){
+                sum -= nums[g-k];
+                sum += nums[g];
+            if(mp[nums[g-k]] == 1) mp.erase(nums[g-k]);
+            else mp[nums[g-k]]--;
+            
+            mp[nums[g]]++;
+            if(mp.size()>=mss) 
+            ans = max(ans, sum);
+        }
+            
+        
+        return ans;
+    }
