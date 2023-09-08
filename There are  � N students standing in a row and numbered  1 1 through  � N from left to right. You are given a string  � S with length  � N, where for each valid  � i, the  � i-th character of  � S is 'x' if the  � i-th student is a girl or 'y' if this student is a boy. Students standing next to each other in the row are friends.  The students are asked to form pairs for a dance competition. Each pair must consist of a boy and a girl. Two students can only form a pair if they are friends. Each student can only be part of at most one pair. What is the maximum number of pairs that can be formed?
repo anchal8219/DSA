@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        int n=s.length();
+        int i=0,c=0;
+        while(i<n){
+            if((s[i]=='x' && s[i+1]=='y') || (s[i]=='y' && s[i+1]=='x')){
+                c++;
+                i+=2;
+            }
+            else{
+                i+=1;
+            }
+        }
+        cout<<c<<endl;
+    }
+	return 0;
+}
+
+
+
