@@ -1,0 +1,38 @@
+int catchThieves(char arr[], int n, int K) 
+    {
+        
+        int count = 0;
+    
+        for (int i = 0; i < n; ++i) {
+            if (arr[i] == 'P') {
+                for (int j = max(0, i - K); j <= min(n - 1, i + K); ++j) {
+                    if (arr[j] == 'T') {
+                        arr[j] = 'C';  // Mark the thief as caught.
+                        count++;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        return count;
+    }
+
+//or
+
+vector<int>p,t;
+        for(int i=0;i<n;i++){
+            if(arr[i]=='P')
+            p.push_back(i);
+            else
+            t.push_back(i);
+        }
+        int i=0,j=0,ans=0;
+        while(i<p.size() && j<t.size()){
+            if(abs(p[i]-t[j]) <= k)
+            i++,j++,ans++;
+            else if(p[i]>t[j]) j++;
+            else i++;
+        }
+        return ans;
+        
