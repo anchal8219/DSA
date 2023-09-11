@@ -1,0 +1,14 @@
+int getMinDiff(int a[], int n, int k) {
+        // code here
+        sort(a,a+n); 
+        int mn=a[0],mx=a[n-1];
+        int ans = mx-mn;
+        for(int i=1;i<n;i++){
+            if(a[i]-k < 0 ) continue;
+            mn = min(a[i]-k , a[0]+k);
+            mx = max(a[n-1]-k , a[i-1]+k);
+            ans = min(ans,mx-mn);
+        }
+        return ans;
+        
+    }
