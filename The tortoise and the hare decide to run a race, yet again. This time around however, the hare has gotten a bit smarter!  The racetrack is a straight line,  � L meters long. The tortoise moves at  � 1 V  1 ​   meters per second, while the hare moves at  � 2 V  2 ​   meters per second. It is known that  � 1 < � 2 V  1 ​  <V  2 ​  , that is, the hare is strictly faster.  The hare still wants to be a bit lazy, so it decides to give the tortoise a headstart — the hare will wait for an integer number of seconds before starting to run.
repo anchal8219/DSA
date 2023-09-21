@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t,l,v1,v2;
+	cin>>t;
+	while(t--){
+	    cin>>l>>v1>>v2;
+	    int t1 = ceil((double)l / v1); // Cast l to double to ensure accurate division
+        int t2 = ceil((double)l / v2);
+	   // cout<<t2;
+	   // cout<<endl;
+	    int df = abs(t1-t2);
+	   // cout<<df<<" "<<endl;
+	    if(df==0) cout<<-1<<endl;
+	    else if(df==1) cout<<0<<endl;
+	    else if(df>1) {
+	       // int m = t2-1;
+	        cout<<df-1<<endl;
+	    }
+	        
+	    
+	}
+	return 0;
+}
