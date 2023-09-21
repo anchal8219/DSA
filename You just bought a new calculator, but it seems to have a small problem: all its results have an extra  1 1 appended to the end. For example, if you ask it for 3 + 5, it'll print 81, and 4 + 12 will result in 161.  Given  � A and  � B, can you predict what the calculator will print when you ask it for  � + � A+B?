@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int a,b;
+	cin>>a>>b;
+	int r = a+b;
+	string s = to_string(r);
+	int d = stoi(s+'1');
+	cout<<d<<endl;
+	return 0;
+}
