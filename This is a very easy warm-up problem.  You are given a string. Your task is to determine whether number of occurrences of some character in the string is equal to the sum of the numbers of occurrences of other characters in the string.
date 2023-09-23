@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    string s;
+	    cin>>s;
+	    unordered_map<char,int>m;
+	    for(auto i: s)
+	    m[i]++;
+	    int max =0,sum=0;
+	    for(auto j:m){
+	        if(j.second > max)
+	        max = j.second;
+	        sum+= j.second;
+	        
+	        
+	    }
+	    if(max == sum-max) cout<<"YES"<<endl;
+	    else cout<<"NO"<<endl;
+	}
+	return 0;
+}
