@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t,n,k;
+	cin>>t;
+	while(t--){
+	    cin>>n>>k;
+	    string s;
+	    cin>>s;
+	    if(s[0]=='0'){
+	        s[0]='1';
+	        k--;
+	    }
+	    while(k--){
+	        s.push_back('0');
+	    }
+	    cout<<s<<endl;
+	}
+	
+	return 0;
+}
