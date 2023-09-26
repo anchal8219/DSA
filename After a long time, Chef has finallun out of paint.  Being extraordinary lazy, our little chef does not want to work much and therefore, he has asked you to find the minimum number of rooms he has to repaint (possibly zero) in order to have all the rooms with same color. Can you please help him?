@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t,n;
+	cin>>t;
+	while(t--){
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    unordered_map<char,int>m;
+	    int mx = 0;
+	    for(auto i:s){
+	        m[i]++;
+	        mx = max(mx,m[i]);
+	        
+	    }
+	    cout<<n-mx<<endl;
+	}
+	return 0;
+}
