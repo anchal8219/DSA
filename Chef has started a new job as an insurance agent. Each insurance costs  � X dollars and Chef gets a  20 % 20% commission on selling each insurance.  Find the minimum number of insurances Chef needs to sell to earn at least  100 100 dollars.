@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t,x;
+	cin>>t;
+	while(t--){
+	    cin>>x;
+	    float ins = 0.2*x;
+	    int h = ceil(100/ins);
+	    cout<<h<<endl;
+	    
+	}
+	return 0;
+}
