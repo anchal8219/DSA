@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int fillCups(vector<int>& amount) {
+        priority_queue<int> p;
+        for(int i=0;i<amount.size();i++)
+        p.push(amount[i]);
+
+        int ans=0,f=0,s=0;
+        while(p.top()!=0){
+            ans++;
+            if(p.top()!=0){
+                f = p.top();
+                p.pop();
+                f--;
+            }
+            if(p.top()!=0){
+                s = p.top();
+                p.pop();
+                s--;
+            }
+
+            p.push(f);
+            p.push(s);
+        }
+
+        return ans;
+    }
+};
