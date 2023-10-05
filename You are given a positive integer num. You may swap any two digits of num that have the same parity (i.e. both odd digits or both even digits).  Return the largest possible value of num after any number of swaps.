@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int largestInteger(int num) {
+        priority_queue<int>e;
+        priority_queue<int>o;
+        string s = to_string(num);
+
+        for(int i=0;i<s.size();i++){
+            if((s[i]-'0') % 2 ==0) e.push(s[i]-'0');
+            else o.push(s[i]-'0');
+        }
+        int ans=0;
+        for(int i=0;i<s.size();i++){
+            ans*=10;
+            if((s[i]-'0')%2==0){
+                ans += e.top();
+                e.pop();
+            }
+            else{
+                ans += o.top();
+                o.pop();
+            }
+        }
+        return ans;
+    }
+};
