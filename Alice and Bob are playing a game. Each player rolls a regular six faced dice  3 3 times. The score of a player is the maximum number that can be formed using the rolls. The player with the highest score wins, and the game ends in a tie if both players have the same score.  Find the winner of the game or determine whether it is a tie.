@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	int t,a1,a2,a3,b1,b2,b3,res1,res2;
+	cin>>t;
+	while(t--){
+	    cin>>a1>>a2>>a3>>b1>>b2>>b3;
+	    priority_queue<int>p;
+	    p.push(a1);
+	    p.push(a2);
+	    p.push(a3);
+	    priority_queue<int>q;
+	    q.push(b1);
+	    q.push(b2);
+	    q.push(b3);
+	   // for(int i=0;i<3;i++){
+	   //     p.push(a1)
+	   // }
+	   res1=0,res2=0;
+	   while(!p.empty()){
+	       res1 += res1*10 + p.top();
+	       p.pop();
+	   }
+	   while(!q.empty()){
+	       res2 += res2*10 + q.top();
+	       q.pop();
+	   }
+	   //cout<<res1<<" "<<res2<<endl;
+	   if(res1>res2) cout<<"alice"<<endl;
+	   else if(res1==res2) cout<<"tie"<<endl;
+	   else cout<<"bob"<<endl;
+	}
+	return 0;
+}
