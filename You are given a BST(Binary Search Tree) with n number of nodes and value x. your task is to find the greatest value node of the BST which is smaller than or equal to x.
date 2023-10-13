@@ -1,0 +1,44 @@
+void order(Node * root,vector<int>& v){
+    if(root==NULL){
+        return ;
+    }
+    order(root->left,v);
+    v.push_back(root->data);
+    order(root->right,v);
+    
+}
+    int floor(Node* root, int x) {
+        // Code here
+        vector<int> v;
+        int ans=0;
+        order(root,v);
+        if(v[0]>x){
+            return -1;
+        }
+        if(v[v.size()-1]<x){
+            return v[v.size()-1];
+        }
+        else{
+        int i=0;
+        int e=v.size()-1;
+        int mid=i+(e-i)/2;
+        while(i<=e){
+            if(v[mid]==x){
+                ans=v[mid];
+                break;
+            }
+            if( x<v[mid+1] && x>v[mid]){
+                ans=v[mid];
+                break;
+            }
+            if(x<v[mid]){
+                e=mid-1;
+            }
+            else{
+                i=mid+1;
+            }
+            mid=i+(e-i)/2;
+        }
+        return ans;
+        }
+    }
