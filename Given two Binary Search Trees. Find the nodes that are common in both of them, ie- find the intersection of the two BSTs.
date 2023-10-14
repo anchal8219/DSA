@@ -1,0 +1,30 @@
+vector<int> out;
+
+    bool find(Node* node, int x) {
+        if (!node)
+            return false;
+
+        if (node->data == x)
+            return true;
+
+        if (node->data > x)
+            return find(node->left, x);
+
+        return find(node->right, x);
+    }
+
+    void inorder(Node* root1, Node* root2) {
+        if (!root1)
+            return;
+
+        inorder(root1->left, root2);
+        if (find(root2, root1->data))
+            out.push_back(root1->data);
+        inorder(root1->right, root2);
+    }
+
+    vector<int> findCommon(Node* root1, Node* root2) {
+        inorder(root1, root2);
+        return out;
+    }
+};
