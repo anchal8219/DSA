@@ -1,0 +1,54 @@
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+        string u,l,cp;
+        int d=0;
+        for(char c:word){
+            u += toupper(c);
+            l += tolower(c);
+            if(d==0)
+            {
+                cp += toupper(c);
+                d=1;
+            }
+            else cp+=tolower(c);
+            // cout<<cp<<endl;
+        }
+        string wr;
+        istringstream iss(word);
+        while(iss >> wr){
+            if(wr == u || wr==l || wr==cp) return true;
+        }
+        return false;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+        int count=0;
+        if(word.size()==1)
+            return true;
+        
+        for(int i=0; i<word.size(); i++)
+            if(isupper(word[i]))
+                count++;
+        
+        if(count==1 && isupper(word[0]))
+            return true;
+        if(count==0 || count==word.size())
+            return true;
+        else
+            return false;
+    }
+};
