@@ -1,0 +1,59 @@
+class Solution {
+public:
+    vector<int> diStringMatch(string s) {
+        unordered_map<int,int>m;
+        for(int i=0;i<=s.length();i++)
+        m[i]++;
+        vector<int>v;
+        int c1=0,c2=s.length();
+        for(int i=0;i<s.length();i++){
+            if(s[i]=='I'){
+                v.push_back(c1);
+                m[c1]--;
+                c1++;
+                
+            }
+            else{
+                v.push_back(c2);
+                m[c2]--;
+                c2--;
+                
+            }
+        }
+        for(auto h:m){
+            if(h.second==1)
+            v.push_back(h.first);
+        }
+        
+        return v;
+    }
+};
+
+
+
+//or
+
+class Solution {
+public:
+    vector<int> diStringMatch(string s) {
+        unordered_map<int,int>m;
+        for(int i=0;i<=s.length();i++)
+        m[i]++;
+        vector<int>v;
+        int c1=0,c2=s.length();
+        for(int i=0;i<=s.length();i++){
+            if(s[i]=='I'){
+                v.push_back(c1);
+                c1++;
+                m[c1]--;
+            }
+            else{
+                v.push_back(c2);
+                c2--;
+                m[c2]--;
+            }
+        }
+        // v.push_back(m[0]);
+        return v;
+    }
+};
