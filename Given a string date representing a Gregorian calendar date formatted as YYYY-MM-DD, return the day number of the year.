@@ -1,0 +1,52 @@
+class Solution {
+public:
+   
+bool isleap(int year)
+{
+    if (year % 400 == 0) {
+        return true;
+    }
+ 
+    // not a leap year if divisible by 100
+    // but not divisible by 400
+    else if (year % 100 == 0) {
+        return false;
+    }
+ 
+    // leap year if not divisible by 100
+    // but divisible by 4
+    else if (year % 4 == 0) {
+        return true;
+    }
+ 
+    // all other years are not leap years
+    else {
+        return false;
+    }
+}
+
+    int dayOfYear(string s) {
+        int yr = (s[0]-'0')*1000 + (s[1]-'0')*100 + (s[2]-'0')*10 + s[3]-'0';
+        unordered_map<int, int> m;
+        if (isleap(yr)) {
+            m = {{1, 31}, {2, 29}, {3, 31}, {4, 30}, {5, 31}, {6, 30}, {7, 31}, {8, 31}, {9, 30}, {10, 31}, {11, 30}, {12, 31}};
+        }
+        else {
+            m = {{1, 31}, {2, 28}, {3, 31}, {4, 30}, {5, 31}, {6, 30}, {7, 31}, {8, 31}, {9, 30}, {10, 31}, {11, 30}, {12, 31}};
+        }
+
+        int mnt = (s[5]-'0')*10 + s[6]-'0';
+        int j=1,sum=0;
+        while(j<mnt){
+            sum+=m[j];
+            j++;    
+        }
+        int dt = (s[8]-'0')*10 + s[9]-'0';
+        sum+=dt;
+        
+
+
+    return sum;
+
+    }
+};
