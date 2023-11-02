@@ -1,0 +1,27 @@
+# DSA
+class Solution {
+public:
+    int uniqueMorseRepresentations(vector<string>& w) {
+        // Define the Morse code mapping
+        unordered_map<char, string> m{
+            {'a', ".-"}, {'b', "-..."}, {'c', "-.-."}, {'d', "-.."}, {'e', "."},
+            {'f', "..-."}, {'g', "--."}, {'h', "...."}, {'i', ".."}, {'j', ".---"},
+            {'k', "-.-"}, {'l', ".-.."}, {'m', "--"}, {'n', "-."}, {'o', "---"},
+            {'p', ".--."}, {'q', "--.-"}, {'r', ".-."}, {'s', "..."}, {'t', "-"},
+            {'u', "..-"}, {'v', "...-"}, {'w', ".--"}, {'x', "-..-"}, {'y', "-.--"},
+            {'z', "--.."}
+        };
+        
+        set<string> st; // Set to store unique Morse representations
+        
+        for (const string& word : w) {
+            string s = "";
+            for (char c : word) {
+                s += m[c]; // Build the Morse representation for the current word
+            }
+            st.insert(s); // Insert the Morse representation into the set
+        }
+
+        return st.size(); // Return the size of the set (number of unique Morse representations)
+    }
+};
