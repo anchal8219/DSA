@@ -1,0 +1,32 @@
+
+class Solution {
+public:
+    int maxNumberOfBalloons(std::string t) {
+        std::unordered_map<char, int> mp;
+        for (char c : t) {
+            mp[c]++;
+        }
+        string word = "balloon";
+        int minCount = INT_MAX;
+    
+        for (char c : word) {
+            if (c == 'l' || c == 'o') {
+                minCount = min(minCount, mp[c] / 2);
+            } else {
+                minCount = min(minCount, mp[c]);
+            }
+        }
+        
+        return minCount;
+    }
+};
+
+//or
+class Solution {
+public:
+    int maxNumberOfBalloons(string text) {
+        unordered_map<char, int> mm;
+        for (char i : text) mm[i] += 1;
+        return min(mm['b'], min(mm['a'], min(mm['l']/2, min(mm['o']/2, mm['n']))));
+    }
+};
