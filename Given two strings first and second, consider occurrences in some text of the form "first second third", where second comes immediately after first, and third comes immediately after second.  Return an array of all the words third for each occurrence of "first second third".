@@ -1,0 +1,19 @@
+vector<string> findOcurrences(string text, string first, string second) {
+        istringstream iss(text);
+        string word;
+        vector<string> words;
+
+        // Initialize the last two words with empty strings
+       string prev1 = "";
+        string prev2 = "";
+
+        while (iss >> word) {
+            if (prev1 == first && prev2 == second) {
+                words.push_back(word);
+            }
+            prev1 = prev2;
+            prev2 = word;
+        }
+
+        return words;
+    }
