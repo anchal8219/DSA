@@ -1,0 +1,21 @@
+
+
+class Solution {
+public:
+    string thousandSeparator(int n) {
+        string res="";
+        if(n==0)return "0";
+
+        int count=0;
+        while(n>0){
+            count++;
+            if(count%4==0) res="."+res;
+            else {
+                res=to_string(n%10)+res;
+                n/=10;
+            }
+            
+        }
+        return res;
+    }
+};
