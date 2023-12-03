@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+string StringChallenge(string sen) {
+    int c = 0;
+    string str = "";
+    vector<pair<int, string>> v;
+
+    for (auto ch : sen) {
+        if (isalpha(ch)) { // Check if the character is a letter
+            c++;
+            str += ch;
+        } else if (ch == ' ') {
+            if (c > 0) {
+                v.push_back({c, str});
+                c = 0;
+                str = "";
+            }
+        }
+    }
+
+    // Check for the last word
+    if (c > 0) {
+        v.push_back({c, str});
+    }
+
+    sort(v.begin(), v.end(), greater<pair<int, string>>());
+    return v[0].second;
+}
+
+int main() {
+    string s = "fun&!! time";
+    cout << StringChallenge(s) << endl;
+    return 0;
+}
