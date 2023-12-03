@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string StringChallenge(string str) {
+    int i = 0, j = 0;
+    string compressedString = "";
+
+    while (j < str.length()) {
+        if (i == j)
+            j++;
+        else {
+            if (str[i] == str[j])
+                j++;
+            else {
+                compressedString += to_string(j - i);
+                compressedString += str[j - 1];
+                i = j;
+            }
+        }
+    }
+
+    // Handle the last repeating sequence
+    compressedString += to_string(j - i);
+    compressedString += str[j - 1];
+
+    return compressedString;
+}
+
+int main() {
+    // keep this function call here
+    string s = "aabbcde";
+    cout << StringChallenge(s) << endl;
+    return 0;
+}
