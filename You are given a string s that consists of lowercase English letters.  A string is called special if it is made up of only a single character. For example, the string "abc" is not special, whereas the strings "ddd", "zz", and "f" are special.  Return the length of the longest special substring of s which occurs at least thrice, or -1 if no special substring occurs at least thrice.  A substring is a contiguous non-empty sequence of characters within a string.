@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool ispec(string sub){
+        unordered_set<char>st(sub.begin(),sub.end());
+        return sub.size()==1;
+    }
+    int maximumLength(string s) {
+        int n = s.length();
+        unordered_map<string,int>mp;
+        string f;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                f = s.substr(i,j-i);
+                if(ispec(f)) mp[f]++;
+            }
+        }
+        int mx = INT_MIN;
+        for(auto k:mp){
+            if(k.second>=3)
+            mx = std::max(mx,static_cast<int>(entry.first.length()));
+        }
+        return mx;
+    }
+};
