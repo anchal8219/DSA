@@ -4,6 +4,7 @@ public:
         unordered_set<char>st(sub.begin(),sub.end());
         return st.size()==1;
     }
+    
     int maximumLength(string s) {
         int n = s.length();
         unordered_map<string,int>mp;
