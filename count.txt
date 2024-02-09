@@ -1,0 +1,22 @@
+class Solution {
+public:
+    // int countNodes(TreeNode* root) {
+    //     if(root == nullptr) return 0;
+    //     else return 1+countNodes(root->left)+countNodes(root->right);
+    // }
+
+    int countNodes(TreeNode* root) {
+        if(root == nullptr) return 0;
+        queue<TreeNode*>q;
+        q.push(root);
+        int c=0;
+        while(!q.empty()){
+            TreeNode* no = q.front();
+            c++;
+            q.pop();
+            if(no->left!=nullptr) q.push(no->left);
+            if(no->right!=nullptr) q.push(no->right);
+        }
+        return c;
+    }
+};
