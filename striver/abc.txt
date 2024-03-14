@@ -1,0 +1,45 @@
+class Solution {
+public:
+    int repeatedStringMatch(string a, string b) {
+        int ind=-1;
+        for(int i=0;i<a.length();i++){
+            if(b[0]==a[i]){
+                ind = i;
+                break;
+            }
+        }
+        if (ind == -1)
+            return -1;
+
+        int c=0;
+        string tmp = a;
+        while(true){
+            
+            int n=a.length();
+            cout<<n-ind<<" "<<b.length()<<endl;
+            if((n-ind) < b.length()){
+                c++;
+                cout<<"count: "<<c<<endl;
+                a+=tmp;
+                cout<<"a:"<<a<<endl;
+            }
+            else if((n-ind) >= b.length()){
+                int fg=1;
+                for(int i=0;i<n;i++){
+                    // for(int j=0;j<n;i++){
+                        if(a.substr(i,b.length())!=b)
+                        fg = 0;
+
+                    // }
+                }
+                if(fg==0)
+                return -1;
+                else break;
+                // else return 0;
+            }
+        }
+        // cout<<c+1;
+        return c+1;
+        
+    }
+};
