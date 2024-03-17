@@ -12,7 +12,6 @@ int firstNonDuplicateLetter(string s){
         return i;
     }
     return -1;
-
 }
 
 int main(){
