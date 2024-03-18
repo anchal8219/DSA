@@ -13,7 +13,6 @@ int firstNonDuplicateLetter(string s){
     }
     return -1;
 }
-
 int main(){
     string s;
     cin>>s;
