@@ -3,72 +3,72 @@
 using namespace std;
 
 // 1.
-int main()
-{
+// int main()
+// {
 
-    int i, n, j ;
+//     int i, n, j ;
 
-        cin >> n;
+//         cin >> n;
 
-    for (i = 1; i <= n; i++){
+//     for (i = 1; i <= n; i++){
 
-        for (j = 1; j <= i; j++)
-
-        
-        cout << "*";
-        
-
-    cout<< "\n";
-    }
-}
-
-
-// 2.
-int main()
-{
-
-    int i, n, j ;
-
-        cin >> n;
-
-    for (i = n; i >=1; i--){
-
-        for (j = 1; j <= i; j++)
+//         for (j = 1; j <= i; j++)
 
         
-        cout << "*";
+//         cout << "*";
         
 
-    cout<< "\n";
-    }
-}
+//     cout<< "\n";
+//     }
+// }
 
 
-// 3.
-int main()
-{
+// // 2.
+// int main()
+// {
 
-    int i, n, j ;
+//     int i, n, j ;
 
-        cin >> n;
+//         cin >> n;
 
-    for (i = 1; i <= n; i++){
+//     for (i = n; i >=1; i--){
 
-        for (j = n-i; j >=1; j--)
+//         for (j = 1; j <= i; j++)
 
-        {
-            cout << " ";
-        }
+        
+//         cout << "*";
+        
 
-        for (int k = 1; k <= i; k++)
+//     cout<< "\n";
+//     }
+// }
 
-        {
-            cout << "*";
-        }
 
-    cout<< "\n";
-    }
-}
+// // 3.
+// int main()
+// {
+
+//     int i, n, j ;
+
+//         cin >> n;
+
+//     for (i = 1; i <= n; i++){
+
+//         for (j = n-i; j >=1; j--)
+
+//         {
+//             cout << " ";
+//         }
+
+//         for (int k = 1; k <= i; k++)
+
+//         {
+//             cout << "*";
+//         }
+
+//     cout<< "\n";
+//     }
+// }
 
 // 4.
 int main()
@@ -89,7 +89,7 @@ int main()
         for (int k = i; k >= 1; k--)
 
         {
-            cout << "*";
+            cout << "* ";
         }
 
     cout<< "\n";
