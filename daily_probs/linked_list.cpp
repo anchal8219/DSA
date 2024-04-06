@@ -22,7 +22,13 @@ Node *arr2ll(vector<int>arr){
 }
 
 int main(){
-    vector<int>v={5,8,7};
+    vector<int>v={5,8,7,15,67,21};
     Node *head = arr2ll(v);
-    cout<<head->data;
+    // cout<<head->data;
+    //traverse the whole linked list
+    Node *temp = head;
+    while(temp){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
 }
