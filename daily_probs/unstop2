@@ -1,0 +1,10 @@
+int countX(int n) {
+    int count = 1;  
+    while (n) {
+        if (n & 1) {
+            count *= 2; 
+        }
+        n >>= 1; 
+    }
+    return count;
+}
