@@ -21,14 +21,28 @@ Node *arr2ll(vector<int>arr){
     return head;
 }
 
-int main(){
-    vector<int>v={5,8,7,15,67,21};
-    Node *head = arr2ll(v);
-    // cout<<head->data;
-    //traverse the whole linked list
+void print(Node *head){
     Node *temp = head;
     while(temp){
         cout<<temp->data<<" ";
         temp = temp->next;
     }
+}
+
+Node *removeHead(Node *head){
+    if(head==nullptr) return nullptr;
+    Node *temp = head;
+    head = head->next;
+    free(temp);
+    return head;
+
+}
+
+int main(){
+    vector<int>v={5,8,7,15,67,21};
+    Node *head = arr2ll(v);
+    // cout<<head->data;
+    head = removeHead(head);
+    print(head);
+    
 }
