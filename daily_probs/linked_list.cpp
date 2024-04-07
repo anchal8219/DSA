@@ -28,9 +28,9 @@ void print(Node *head){
         temp = temp->next;
     }
 }
-
+//always remember while removing, then free it also
 Node *removeHead(Node *head){
-    if(head==nullptr) return nullptr;
+    if(head==nullptr || head->next==nullptr) return nullptr;
     Node *temp = head;
     head = head->next;
     free(temp);
@@ -38,11 +38,26 @@ Node *removeHead(Node *head){
 
 }
 
+Node *removeTail(Node *head){
+    if(head==nullptr || head->next==nullptr) return nullptr;
+    Node *temp = head;
+    while(temp->next->next!=nullptr){
+        temp=temp->next;
+    }
+    free(temp->next);
+    temp->next = nullptr;
+    return head;
+}
+
 int main(){
-    vector<int>v={5,8,7,15,67,21};
+    vector<int>v={5,91,21,15,4};
     Node *head = arr2ll(v);
     // cout<<head->data;
     head = removeHead(head);
     print(head);
+    cout<<endl;
+    head = removeTail(head);
+    print(head);
+    
     
 }
