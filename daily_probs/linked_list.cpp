@@ -28,6 +28,8 @@ void print(Node *head){
         temp = temp->next;
     }
 }
+
+// DELETION COMPLETED
 //always remember while removing, then free it also
 Node *removeHead(Node *head){
     if(head==nullptr || head->next==nullptr) return nullptr;
@@ -69,6 +71,22 @@ Node *removeKth(Node *head,int k){
     return head;
 }
 
+Node *removeKthEl(Node*head,int el){
+    Node *temp = head;
+    Node *prev= new Node(0);
+    prev->next = head;
+    while(temp->next != nullptr){
+        if(temp->data==el){
+            prev->next = temp->next;
+            delete temp;
+            return head;
+        }
+        temp=temp->next;
+        prev=prev->next;
+    }
+}
+// DELETION COMPLETED
+
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2ll(v);
@@ -78,8 +96,9 @@ int main(){
     // cout<<endl;
     // head = removeTail(head);
     // print(head);
-
-    head = removeKth(head,2);
+    // head = removeKth(head,2);
+    // print(head);
+    head = removeKthEl(head,91);
     print(head);
 
     
