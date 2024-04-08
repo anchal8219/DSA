@@ -49,15 +49,39 @@ Node *removeTail(Node *head){
     return head;
 }
 
+Node *removeKth(Node *head,int k){
+    if(head==nullptr) return head;
+    Node *temp=head;
+    Node *prev = new Node(0);
+    prev->next = head;
+    int c=1;
+    while(temp->next!=nullptr){
+        if(c==k){
+            prev->next = temp->next;
+            free(temp);
+            return head;
+        }
+        
+        temp=temp->next;
+        prev=prev->next;
+        c++;
+    }
+    return head;
+}
+
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2ll(v);
     // cout<<head->data;
-    head = removeHead(head);
+    // head = removeHead(head);
+    // print(head);
+    // cout<<endl;
+    // head = removeTail(head);
+    // print(head);
+
+    head = removeKth(head,2);
     print(head);
-    cout<<endl;
-    head = removeTail(head);
-    print(head);
+
     
     
 }
