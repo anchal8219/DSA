@@ -69,6 +69,21 @@ Node *removeKth(Node *head,int k){
     return head;
 }
 
+Node *removeKthEl(Node*head,int el){
+    Node *temp = head;
+    Node *prev= new Node(0);
+    prev->next = head;
+    while(temp->next != nullptr){
+        if(temp->data==el){
+            prev->next = temp->next;
+            delete temp;
+            return head;
+        }
+        temp=temp->next;
+        prev=prev->next;
+    }
+}
+
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2ll(v);
@@ -79,7 +94,9 @@ int main(){
     // head = removeTail(head);
     // print(head);
 
-    head = removeKth(head,2);
+    // head = removeKth(head,2);
+    // print(head);
+    head = removeKthEl(head,91);
     print(head);
 
     
