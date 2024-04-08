@@ -92,10 +92,28 @@ Node *removeKthEl(Node*head,int el){
 Node *insertAtHead(Node *head,int el){
     Node *newNode = new Node(el);
     newNode->next = head;
+    //or
+    // Node *newNode = new Node(el,head);
+
+
     // head = newNode;
     // return head;
     //or
     return newNode;
+}
+
+Node *insertAtEnd(Node *head,int el){
+    Node *newNode = new Node(el);
+    newNode->next  = nullptr;
+    if (head == nullptr) {
+        return newNode; 
+    }
+    Node *temp = head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    temp->next = newNode;
+    return head;
 }
 
 int main(){
@@ -111,10 +129,14 @@ int main(){
     // print(head);
     // head = removeKthEl(head,91);
     // print(head);
-    
+
 
     head = insertAtHead(head,3);
     print(head);
+
+    head = insertAtEnd(head,556);
+    print(head);
+    
 
 
 
