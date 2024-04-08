@@ -87,6 +87,16 @@ Node *removeKthEl(Node*head,int el){
 }
 // DELETION COMPLETED
 
+
+// INSERTION
+Node *insertAtHead(Node *head,int el){
+    Node *newNode = new Node(el);
+    newNode->next = head;
+    // head = newNode;
+    // return head;
+    return newNode;
+}
+
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2ll(v);
@@ -98,8 +108,13 @@ int main(){
     // print(head);
     // head = removeKth(head,2);
     // print(head);
-    head = removeKthEl(head,91);
+    // head = removeKthEl(head,91);
+    // print(head);
+
+    head = insertAtHead(head,3);
     print(head);
+
+
 
     
     
