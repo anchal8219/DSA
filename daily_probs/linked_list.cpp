@@ -94,6 +94,7 @@ Node *insertAtHead(Node *head,int el){
     newNode->next = head;
     // head = newNode;
     // return head;
+    //or
     return newNode;
 }
 
