@@ -87,6 +87,60 @@ Node *removeKthEl(Node*head,int el){
 }
 // DELETION COMPLETED
 
+
+// INSERTION
+Node *insertAtHead(Node *head,int el){
+    Node *newNode = new Node(el);
+    newNode->next = head;
+    //or
+    // Node *newNode = new Node(el,head);
+
+
+    // head = newNode;
+    // return head;
+    //or
+    return newNode;
+}
+
+Node *insertAtEnd(Node *head,int el){
+    Node *newNode = new Node(el);
+    newNode->next  = nullptr;
+    if (head == nullptr) {
+        return newNode; 
+    }
+    Node *temp = head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    temp->next = newNode;
+    return head;
+}
+
+Node *insertAtKth(Node *head,int k, int el){
+    if(head==nullptr){
+        if(k==1){
+            head = new Node(el);
+        }
+        else
+        return head;
+    }
+    int c=0;
+    Node *newNode=new Node(el);
+    Node *temp = head;
+    
+    while(temp->next!=nullptr){
+        c++;
+        if(c==(k-1)){
+            newNode->next = temp->next;
+            temp->next = newNode;
+            return head;
+        }
+        temp=temp->next;
+    }
+
+
+}
+
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2ll(v);
@@ -98,8 +152,24 @@ int main(){
     // print(head);
     // head = removeKth(head,2);
     // print(head);
-    head = removeKthEl(head,91);
+    // head = removeKthEl(head,91);
+    // print(head);
+
+
+    // head = insertAtHead(head,3);
+    // print(head);
+
+    // head = insertAtEnd(head,556);
+    // print(head);
+    head = insertAtKth(head,3,555);
     print(head);
+
+    // insertAtKth(Node *head,int k, int el)
+
+    
+    
+
+
 
     
     
