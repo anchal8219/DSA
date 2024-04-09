@@ -18,7 +18,6 @@ class Solution {
             n /= 1000;
             i++;
         }
-        
         return res.toString().trim();
     }
     
