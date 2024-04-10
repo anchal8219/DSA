@@ -8,6 +8,10 @@ class Node{
 
     // Constructor to initialize data
     Node(int d) : data(d), next(nullptr) {}
+    Node(int d, Node *n) : data(d), next(n) {}
+
+    //or
+    // Node(int d, Node *n = nullptr) : data(d), next(n) {}
 };
 
 Node *arr2ll(vector<int>arr){
@@ -90,10 +94,10 @@ Node *removeKthEl(Node*head,int el){
 
 // INSERTION
 Node *insertAtHead(Node *head,int el){
-    Node *newNode = new Node(el);
-    newNode->next = head;
+    // Node *newNode = new Node(el);
+    // newNode->next = head;
     //or
-    // Node *newNode = new Node(el,head);
+    Node *newNode = new Node(el,head);
 
 
     // head = newNode;
@@ -140,6 +144,8 @@ Node *insertAtKth(Node *head,int k, int el){
 
 
 }
+// INSERTION
+
 
 int main(){
     vector<int>v={5,91,21,15,4};
@@ -156,13 +162,13 @@ int main(){
     // print(head);
 
 
-    // head = insertAtHead(head,3);
-    // print(head);
+    head = insertAtHead(head,301);
+    print(head);
 
     // head = insertAtEnd(head,556);
     // print(head);
-    head = insertAtKth(head,3,555);
-    print(head);
+    // head = insertAtKth(head,3,555);
+    // print(head);
 
     // insertAtKth(Node *head,int k, int el)
 
