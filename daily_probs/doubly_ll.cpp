@@ -29,9 +29,29 @@ Node *arr2Dll(vector<int>arr){
     return head;
 }
 
+Node *deleteHead(Node *head){
+    if(head==nullptr) return head;
+    else if(head->next==nullptr) {
+        delete head;
+        return nullptr;
+    }
+    else{
+        Node *temp=head;
+        head=head->next;
+        head->prev = nullptr;
+        temp->next=nullptr;
+        delete temp;
+        return head;
+    }
+}
+
+
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2Dll(v);
+    // print(head);
+
+    head = deleteHead(head);
     print(head);
     
     
