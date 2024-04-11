@@ -45,15 +45,39 @@ Node *deleteHead(Node *head){
     }
 }
 
+Node *deleteTail(Node *head){
+    if(head==nullptr) return head;
+    else if(head->next==nullptr) {
+        delete head;
+        return nullptr;
+    }
+    else{
+       Node *temp=head;
+       while(temp->next->next!=nullptr){
+           temp=temp->next;
+       } 
+       Node *ws = temp->next;
+       
+       temp->next->prev=nullptr;
+       temp->next=nullptr;
+       
+    //    temp->next->prev=temp;
+       delete ws;
+       return head;
+       
+
+    }
+}
 
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2Dll(v);
     // print(head);
 
-    head = deleteHead(head);
+    // head = deleteHead(head);
+    // print(head);
+    head = deleteTail(head);
     print(head);
-    
     
     
     
