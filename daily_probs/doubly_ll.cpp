@@ -104,8 +104,7 @@ Node *deleteKth(Node *head,int k){
 int main(){
     vector<int>v={5,91,21,15,4};
     Node *head = arr2Dll(v);
-    // print(head);
-
+    // print(head)
     // head = deleteHead(head);
     // print(head);
     // head = deleteTail(head);
