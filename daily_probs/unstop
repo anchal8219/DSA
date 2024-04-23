@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+struct Friend {
+    int index;
+    double score;
+};
+
+bool compareFriends(const Friend& a, const Friend& b) {
+    if (a.score != b.score) {
+        return a.score > b.score;
+    } else {
+        return a.index > b.index;
+    }
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<Friend> friends(N);
+
+        for (int i = 0; i < N; ++i) {
+            int wins, losses;
+            cin >> wins >> losses;
+            double score = static_cast<double>(wins - losses) / (wins + losses);
+            friends[i] = {i + 1, score};
+        }
+
+        sort(friends.begin(), friends.end(), compareFriends);
+
+        for (const auto& friend_info : friends) {
+            cout << friend_info.index << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
