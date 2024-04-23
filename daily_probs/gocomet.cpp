@@ -27,20 +27,20 @@ int main()
 
 
 
-a = [1,2,3,2,1,3,4];
-b= [1,2];
+// a = [1,2,3,2,1,3,4];
+// b= [1,2];
 
-int k=0;
-for(int i=0;i<a.size();i++){
-    for(int j=0;j<b.size();j++){
-        if(a[i]==a[j]){
-            while(k<a.size()-1){
-                a[i]=a[i+1];
-                k++;
-            }
-        }
-    }
-}
+// int k=0;
+// for(int i=0;i<a.size();i++){
+//     for(int j=0;j<b.size();j++){
+//         if(a[i]==a[j]){
+//             while(k<a.size()-1){
+//                 a[i]=a[i+1];
+//                 k++;
+//             }
+//         }
+//     }
+// }
 
 
 
