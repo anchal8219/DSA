@@ -1,0 +1,35 @@
+#include <iostream>
+#include <unordered_map>
+
+using namespace std;
+
+int main() {
+    int M;
+    cin >> M;
+
+    // Initialize a hash map to store the frequency of each element
+    unordered_map<int, int> frequency;
+
+    // Input matrix elements and update frequency
+    for (int i = 0; i < M; ++i) {
+        for (int j = 0; j < M; ++j) {
+            int element;
+            cin >> element;
+            frequency[element]++;
+        }
+    }
+
+    int sum = 0;
+
+    // Iterate over the frequency map
+    for (auto& pair : frequency) {
+        // If the frequency of an element is even, add it to the sum
+        if (pair.second % 2 == 0) {
+            sum += pair.first * pair.second; // Adding the element * frequency
+        }
+    }
+
+    cout << sum << endl;
+
+    return 0;
+}
