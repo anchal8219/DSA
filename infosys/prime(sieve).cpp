@@ -7,15 +7,24 @@ using namespace std;
 // but 1 is neither prime nor composite
 
 //1. naive approach
+// bool isPrime(int n){
+//     if(n==1) return false;
+//     for(int i=2;i<n;i++){
+//         if(n%i==0) return false;
+//     }
+//     return true;
+// }
+
+//2. efficient approach
 bool isPrime(int n){
     if(n==1) return false;
-    for(int i=2;i<n;i++){
+    for(int i=2;i*i<=n;i++){
         if(n%i==0) return false;
     }
     return true;
 }
 
-//2. efficient approach
+//3. most efficient approach
 
 
 
