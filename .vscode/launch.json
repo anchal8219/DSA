@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/pramo/Desktop/prog/infosys",
-      "program": "c:/Users/pramo/Desktop/prog/infosys/build/Debug/outDebug",
+      "cwd": "c:/Users/pramo/Desktop/prog/tcs_nqt",
+      "program": "c:/Users/pramo/Desktop/prog/tcs_nqt/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
