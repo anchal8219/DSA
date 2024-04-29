@@ -52,22 +52,70 @@ using namespace std;
 // }
 
 
-void printBoundary(vector<vector<int>>a){
+// void printBoundary(vector<vector<int>>a){
+//     int r=a.size();
+//     int c=a[0].size();
+
+//     for(int j=0;j<c;j++)
+//     cout<<a[0][j]<<" ";
+
+//     for(int i=1;i<r;i++)
+//     cout<<a[i][c-1]<<" ";
+
+//     for(int j=c-2;j>=0;j--)
+//     cout<<a[r-1][j]<<" ";
+
+//     for(int i=r-2;i>0;i--)
+//     cout<<a[i][0]<<" ";
+// }
+
+
+//spiral matrix
+
+vector<int> spiralMatrix(vector<vector<int>>a){
     int r=a.size();
     int c=a[0].size();
 
-    for(int j=0;j<c;j++)
-    cout<<a[0][j]<<" ";
+    vector<int>ans;
+        int top=0,bottom=r-1;
+        int left=0,right=c-1;
+        
+        while(left<=right && bottom<=top)
+        {
+            // print top
+            
+            for(int j=left;j<=right;j++)
+            {
+                ans.push_back(a[top][j]);
+                top++;
+            }
+            // print right
+            for(int i=top;i<=bottom;i++)
+            {
+                ans.push_back(a[i][right]);
+                right--;
+            }
+            // print bottom
+            if(top<=bottom)
+            for(int j=right;j>=left;j--)
+            {
+                ans.push_back(a[bottom][j]);
+                bottom--;
+            }
+            
+            // print left
+            if(left<=right)
+            for(int i=bottom;i>=top;i--)
+            {
+                ans.push_back(a[i][left]);
+                left++;
+            }
+        }
+        return ans; 
 
-    for(int i=1;i<r;i++)
-    cout<<a[i][c-1]<<" ";
-
-    for(int j=c-2;j>=0;j--)
-    cout<<a[r-1][j]<<" ";
-
-    for(int i=r-2;i>0;i--)
-    cout<<a[i][0]<<" ";
 }
+
+ 
 
 
 int main()
@@ -91,8 +139,13 @@ int main()
     // cout << "Snake Pattern of the matrix:" << endl;
     // printSnakepattern(a);
 
-    cout << "Boundary of the matrix:" << endl;
-    printBoundary(a);
+    // cout << "Boundary of the matrix:" << endl;
+    // printBoundary(a);
+
+    cout << "Spiral pattern of the matrix:" << endl;
+    vector<int>v=spiralMatrix(a);
+    for(int i=0;i<v.size();i++)
+    cout<<v[i]<<" ";
 
     return 0;
 }
