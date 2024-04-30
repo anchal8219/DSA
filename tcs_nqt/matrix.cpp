@@ -80,36 +80,36 @@ vector<int> spiralMatrix(vector<vector<int>>a){
         int top=0,bottom=r-1;
         int left=0,right=c-1;
         
-        while(left<=right && bottom<=top)
+        while(left<=right && top<=bottom)
         {
             // print top
             
             for(int j=left;j<=right;j++)
             {
                 ans.push_back(a[top][j]);
-                top++;
             }
+            top++;
             // print right
             for(int i=top;i<=bottom;i++)
             {
                 ans.push_back(a[i][right]);
-                right--;
             }
+            right--;
             // print bottom
-            if(top<=bottom)
-            for(int j=right;j>=left;j--)
-            {
+            if(top<=bottom){
+                for(int j=right;j>=left;j--)
                 ans.push_back(a[bottom][j]);
                 bottom--;
             }
             
+            
             // print left
-            if(left<=right)
-            for(int i=bottom;i>=top;i--)
-            {
+            if(left<=right){
+                for(int i=bottom;i>=top;i--)
                 ans.push_back(a[i][left]);
                 left++;
             }
+            
         }
         return ans; 
 
