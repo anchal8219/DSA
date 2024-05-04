@@ -23,11 +23,16 @@ int main()
     vector<int> arr = {2, 6, 5, 8, 11};
     int target = 14;
     vector<int>v = twoSum(n, arr, target);
-    if (v.size() == 2) {
-        cout << "Values: " << arr[v[0]] << " " << arr[v[1]] << endl;
-    } else {
-        cout << "No such pair found!" << endl;
+    cout<<"[";
+    for(auto i:v){
+        cout<<i<<" ";
     }
+    cout<<"]";
+    // if (v.size() == 2) {
+    //     cout << "Values: " << arr[v[0]] << " " << arr[v[1]] << endl;
+    // } else {
+    //     cout << "No such pair found!" << endl;
+    // }
     
     return 0;
 }
