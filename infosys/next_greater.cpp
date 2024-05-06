@@ -23,7 +23,6 @@ vector<int>nextGreaterElement(vector<int>v){
         }
         i--;
     }
-
     reverse(v1.begin(),v1.end());
     return v1;
 }
