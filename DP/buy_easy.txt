@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& p) {
+        int n = p.size();
+        int i=0,j=0;
+        int mx = INT_MIN,mn=INT_MAX,prf=0;
+        while(j<n){
+            if(p[j]<mn){
+                mn = p[j];
+            }
+            prf = p[j]-mn;
+
+            if(prf>mx){
+                mx=prf;
+            }
+            j++;
+        }
+        return mx;
+    }
+};
