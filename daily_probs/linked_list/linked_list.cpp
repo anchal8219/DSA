@@ -171,12 +171,5 @@ int main(){
     // print(head);
 
     // insertAtKth(Node *head,int k, int el)
-
-    
-    
-
-
-
-    
     
 }
