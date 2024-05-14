@@ -13,50 +13,72 @@ struct Node{
     }
 };
 
+// class Solution{
+//     public:
+//     vector<int>leftsideView(Node *root){
+//         vector<int>res;
+//         vector<vector<int>> levelTraversal = levelOrder(root);
+
+//         for (auto level : levelTraversal) {
+//             res.push_back(level.front());
+//         }
+
+//         return res;
+//     }
+
+//     vector<vector<int>> levelOrder(Node* root) {
+//         vector<vector<int>> ans;
+
+//         if (!root) return ans;
+
+//         queue<Node*> q;
+//         q.push(root);
+
+//         while (!q.empty()) {
+//             int size = q.size();
+//             vector<int> level;
+
+//             for (int i = 0; i < size; i++) {
+//                 Node* top = q.front();
+//                 level.push_back(top->val);
+//                 q.pop();
+
+//                 if (top->left != NULL) {
+//                     q.push(top->left);
+//                 }
+//                 if (top->right != NULL) {
+//                     q.push(top->right);
+//                 }
+//             }
+
+//             ans.push_back(level);
+//         }
+
+//         return ans;
+//     }
+// };
+
+//optimized approach
 class Solution{
     public:
     vector<int>leftsideView(Node *root){
         vector<int>res;
-        vector<vector<int>> levelTraversal = levelOrder(root);
-
-        for (auto level : levelTraversal) {
-            res.push_back(level.front());
-        }
-
+        recursionLeft(root, 0, res);
         return res;
     }
 
-    vector<vector<int>> levelOrder(Node* root) {
-        vector<vector<int>> ans;
+    void recursionLeft(Node *root, int level, vector<int>&res){
+        if(root == nullptr) return ;
 
-        if (!root) return ans;
-
-        queue<Node*> q;
-        q.push(root);
-
-        while (!q.empty()) {
-            int size = q.size();
-            vector<int> level;
-
-            for (int i = 0; i < size; i++) {
-                Node* top = q.front();
-                level.push_back(top->val);
-                q.pop();
-
-                if (top->left != NULL) {
-                    q.push(top->left);
-                }
-                if (top->right != NULL) {
-                    q.push(top->right);
-                }
-            }
-
-            ans.push_back(level);
+        if(res.size() == level){
+            res.push_back(root->val);
         }
+        recursionLeft(root->left, level + 1, res);
+        recursionLeft(root->right, level + 1, res);
 
-        return ans;
     }
 };
+
 
 int main() {
     // Creating a sample binary tree
